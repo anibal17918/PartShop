@@ -1,90 +1,113 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+ViewData["Title"] = "Home page";
 }
 
-<div class="row">
-    <div class="h1">Ejemplo crud tienda</div>
-</div>
+@{
+Layout = null;
+}
 
-<div class="row mt-5">
-    <div class="col-12">
-        <table class="table table-bordered table-dark">
-            <tr>
-                <th>Id</th>
-                <th>RNC</th>
-                <th>Nombre</th>
-                <th>Dirección</th>
-                <th>Teléfono</th>
-                <th>Activo</th>
-                <th>FechaRegistro</th>
-                <th>Acciones</th>
-            </tr>
-                @if (Model.Tiendas.Any())
-                {
-                    @foreach (var tienda in Model.Tiendas)
-                    {
-                        <tr>
-                            <td>@tienda.IdTienda</td>
-                            <td>@tienda.Rnc</td>
-                            <td>@tienda.Nombre</td>
-                            <td>@tienda.Direccion</td>
-                            <td>@tienda.Telefono</td>
-                            <td>@(tienda.Activo ? "Si" : "No")</td>
-                            <td>@tienda.FechaRegistro.ToString("dd/MM/yyyy")</td>
-                            <td>
-                                <form class="row" method="post">
-                                    <input type="hidden" name="idTienda" value="@tienda.IdTienda" />
-                                    <div class="col-3">
-                                        <button asp-page-handler="editarTienda" class="btn btn-primary">Editar</button>
-                                    </div>
-                                    <div class="col-3">
-                                        <button asp-page-handler="borrarTienda" class="btn btn-danger">Borrar</button>
-                                    </div>
-                                </form>
-                            </td>
-                        </tr>
-                    }
-                }
-                else
-                {
-                    <tr>
-                        <td class="text-center" colspan="7">No hay tiendas registradas.</td>
-                    </tr>
-                }
-        </table>
-    </div>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vehicle Parts Shop</title>
+    <style>
+        /* Minimalistic design with white and blue as primary colors */
+        body {
+            background: url("") no-repeat center center fixed;
+            background-size: cover;
+        }
+css
+Copy code
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    h1 {
+        color: #0080ff;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+    
+    input[type=text] {
+        width: 400px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px 0 0 5px;
+        outline: none;
+    }
+    
+    button[type=submit] {
+        padding: 10px;
+        background-color: #0080ff;
+        color: white;
+        border: none;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+    }
+    
+    button[type=submit]:hover {
+        background-color: #005c99;
+    }
+    
+    /* Navigation bar styles */
+    .navbar {
+        overflow: hidden;
+        background-color: #0080ff;
+        font-family: Arial, sans-serif;
+    }
 
-<form method="post" asp-page-handler="guardar">
-    <input hidden asp-for="Tienda.IdTienda" />
-    <input hidden asp-for="Tienda.FechaRegistro" />
-    <div class="row mt-5">
-        <div class="col-6">
-            <label for="rnc" class="form-label">Rnc</label>
-            <input id="rnc" class="form-control" type="text" asp-for="Tienda.Rnc"/>
-        </div>
-        <div class="col-6">
-            <label for="nombre" class="form-label">Nombre</label>
-            <input id="nombre" class="form-control" type="text" asp-for="Tienda.Nombre"/>
-        </div>
-        <div class="col-12">
-            <label for="direccion" class="form-label">Dirección</label>
-            <input id="direccion" class="form-control" type="text" asp-for="Tienda.Direccion"/>
-        </div>
-        <div class="col-3">
-            <label for="telefono" class="form-label">Teléfono</label>
-            <input id="telefono" class="form-control" type="text" asp-for="Tienda.Telefono"/>
-        </div>
-        <div class="form-check col-3">
-            <input id="activo" class="form-check-input" type="checkbox" asp-for="Tienda.Activo"/>
-            <label for="activo" class="form-check-label">Activo</label>
-        </div>
+    .navbar a {
+        float: left;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .navbar a:hover {
+        background-color: #005c99;
+    }
+
+    /* Title styles */
+    .title {
+        color: #0080ff;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 36px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+</style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">Advanced Search</a>
+        <a href="#">Contact</a>
+        <a href="#">About Us</a>
     </div>
-    <div class="row mt-3">
-        <div class="col-3">
-            <button class="btn btn-success" type="submit">Guardar</button>
-        </div>
-    </div>
-</form>
+
+<div class="container">
+    <h1 class="title">Vehicle Parts Shop</h1>
+    
+    <form>
+        <input type="text" placeholder="Search for products">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+    
+    <!-- Add additional content here -->
+    
+</div>
+</body>
+</html> 

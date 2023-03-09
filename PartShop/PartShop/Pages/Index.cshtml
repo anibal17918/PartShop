@@ -1,11 +1,11 @@
 ﻿@page
 @model IndexModel
 @{
-ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home page";
 }
 
 @{
-Layout = null;
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -19,95 +19,145 @@ Layout = null;
             background: url("") no-repeat center center fixed;
             background-size: cover;
         }
-css
-Copy code
-    .container {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-    
-    h1 {
-        color: #0080ff;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    
-    form {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 50px;
-    }
-    
-    input[type=text] {
-        width: 400px;
-        padding: 10px;
-        border: none;
-        border-radius: 5px 0 0 5px;
-        outline: none;
-    }
-    
-    button[type=submit] {
-        padding: 10px;
-        background-color: #0080ff;
-        color: white;
-        border: none;
-        border-radius: 0 5px 5px 0;
-        cursor: pointer;
-    }
-    
-    button[type=submit]:hover {
-        background-color: #005c99;
-    }
-    
-    /* Navigation bar styles */
-    .navbar {
-        overflow: hidden;
-        background-color: #0080ff;
-        font-family: Arial, sans-serif;
-    }
 
-    .navbar a {
-        float: left;
-        font-size: 16px;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    
+        h1 {
+            color: #0080ff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+    
+        input[type=text] {
+            width: 500px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+    
+        button[type=submit] {
+            padding: 19px;
+            background-color: #0080ff;
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+    
+        button[type=submit]:hover {
+            background-color: #005c99;
+        }
+    
+        /* Navigation bar styles */
+        .navbar {
+            overflow: hidden;
+            background-color: #0080ff;
+            font-family: Arial, sans-serif;
+        }
 
-    .navbar a:hover {
-        background-color: #005c99;
-    }
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
 
-    /* Title styles */
-    .title {
-        color: #0080ff;
-        text-align: center;
-        margin-bottom: 30px;
-        font-size: 36px;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-</style>
+        .navbar a:hover {
+            background-color: #005c99;
+        }
+
+        /* Title styles */
+        .title {
+            color: #0080ff;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 36px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Logo styles */
+        .logo {
+            display: block;
+            margin: 0 auto;
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
+
 <body>
+    <!-- Nav bar -->
     <div class="navbar">
         <a href="#">Advanced Search</a>
         <a href="#">Contact</a>
         <a href="#">About Us</a>
     </div>
+    <!-- Logo & title -->
+     <div class="container">
+        <img class="logo" src="../assets/images/logo.png" alt="Logo">
+        <h1 class="title">Vehicle Parts Shop</h1>
+     </div>
+    
+        <form>
+            <input type="text" placeholder="Search for products">
+            <button type="submit" class="searchButton"></button>
+        </form>
+ 
+    <!-- Product Gallery -->
+    
+        <div class="gallery">
+          <div class="gallery-item">
+            <img src="assets/product1.jpg" alt="Product 1">
+          </div>
+          <div class="gallery-item">
+            <img src="assets/product2.jpg" alt="Product 2">
+          </div>
+          <div class="gallery-item">
+            <img src="assets/product3.jpg" alt="Product 3">
+          </div>
+          <div class="gallery-item">
+            <img src="assets/product4.jpg" alt="Product 4">
+          </div>
+        </div>
 
-<div class="container">
-    <h1 class="title">Vehicle Parts Shop</h1>
-    
-    <form>
-        <input type="text" placeholder="Search for products">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-    
-    <!-- Add additional content here -->
-    
-</div>
+
+    <style>
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .gallery-item {
+        margin: 10px;
+      }
+      .gallery-item img {
+        max-width: 100%;
+        height: auto;
+        transition: transform 0.3s ease-in-out;
+      }
+      .gallery-item img:hover {
+        transform: scale(1.1);
+      }
+      .gallery-item {
+      margin: 10px;
+      border: 1px solid #ccc;
+      padding: 5px;
+    }
+
+    </style>
 </body>
 </html> 

@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Pages\ShoppingCart.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\assets\images\logo.png" />
   </ItemGroup>
 

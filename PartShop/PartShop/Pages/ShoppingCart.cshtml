@@ -1,0 +1,177 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "ShoppingCart";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vehicle Parts Shop</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- Nav bar -->
+    <nav class="navbar">
+	  <div class="pusher"></div>
+      <a class="nav-link" href="#">Log-In</a>
+      <a class="nav-link" href="#"><img src="/assets/images/shopping_cart_32px.png" width="32" height="32" alt="" class="img-fluid">Cart</a> 
+	  <a class="nav-link" href="#">About Us</a>
+    </nav>
+
+    <!-- Logo & title -->
+    <div class="container">
+        <img class="logo" src="../assets/images/logo.png" alt="Logo">
+        <h1 class="title"><strong>Vehicle Parts Shop</strong></h1>
+    </div>
+	
+		<div class="ShoppingCart">
+		<div class="container">
+		  <div class="row">
+			<div class="col-md-12">
+			  <h2 id="cartTitle"><strong>SHOPPING CART</strong></h2>
+			</div>
+			  <table id="cart">
+				<thead>
+				  <tr>
+					<th>Product Name</th>
+					<th>Price</th>
+					<th>Quantity</th>
+					<th>Total</th>
+				  </tr>
+				</thead>
+				<tbody>
+				</tbody>
+				<tfoot>
+				  <tr>
+					<td>sample</td>
+					<td>sample</td>
+					<td>sample</td>
+					<td>RD$ sample</td>
+				  </tr>
+				</tfoot>
+			  </table>
+			</div>
+		  </div>
+	</div>
+	
+	<!-- CHECKOUT -->
+	
+	<div class="checkout">
+		<form type="submit">
+			<button class="button"><strong>Checkout</strong></button>
+		</form>
+	</div>
+	
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>&copy; 2023 Vehicle Parts Shop. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+<style>
+        /* Minimalistic design with white and blue as primary colors */
+	
+		.container {
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+	
+        body {
+            background: url("") no-repeat center center fixed;
+            background-size: cover;
+        }
+    
+        h1 {
+            color: #0080ff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    
+        /* Navigation bar styles */
+        .navbar {
+            overflow: hidden;
+            background-color: #0080ff;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 5px 10px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #005c99;
+        }
+
+        nav {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+        }
+
+
+        /* Title styles */
+        .title {
+            color: #0080ff;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 36px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Logo styles */
+        .logo {
+            display: block;
+            margin: 0 auto;
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+		.pusher{
+			margin-left: 70%;
+		}
+	
+		#cart {
+		  width: 100%;
+		  border-collapse: collapse;
+		}
+
+		#cart th, #cart td {
+		  border: 1px solid black;
+		  padding: 5px;
+		  text-align: center;
+		}
+
+		#products li {
+		  cursor: pointer;
+		  margin-bottom: 5px;
+		}
+	
+	.button{
+		background-color: #0B64B7;
+		color: #FFFFFF;
+		padding: 15px;
+		font-size:15px;
+		margin-left: 93%;	
+	}
+	
+	#cartTitle{
+		color: #0080FF;
+	}
+
+    </style>
+</html>

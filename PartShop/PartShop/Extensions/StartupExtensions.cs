@@ -7,7 +7,7 @@ namespace PartShop.Extensions
     {
         public static void AddPartShopServices(this IServiceCollection services)
         {
-            services.AddScoped<ITiendaRepository, TiendaRepository>();
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
         }
     }
 }

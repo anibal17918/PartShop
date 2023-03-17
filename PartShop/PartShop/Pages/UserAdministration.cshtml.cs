@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using PartShop.Domain.Entities;
 using PartShop.Domain.Repositories;
 
-namespace PartShop.Pages
+namespace PartShop.Pages.UserAdmin
 {
     public class IndexModel : PageModel
     {

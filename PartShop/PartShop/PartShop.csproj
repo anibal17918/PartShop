@@ -20,13 +20,28 @@
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
+<<<<<<< HEAD
 
     <PackageReference Include="Microsoft.AspNet.Identity.EntityFramework" Version="2.2.3" />
 
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.14">
+=======
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.15">
+>>>>>>> 4215a11a04fbcbecc27c26a45cf8caa0c93732c2
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.15">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Core" Version="6.0.13" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Pages\Producto\" />
   </ItemGroup>
 
 </Project>

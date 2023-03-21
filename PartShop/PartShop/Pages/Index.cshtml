@@ -1,5 +1,4 @@
 ﻿@page
-@model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
@@ -16,7 +15,7 @@
     <!-- Nav bar -->
     <nav class="navbar">
 	  <div class="pusher"></div>
-      <a class="nav-link" href="#">Log-In</a>
+      <a class="nav-link" asp-page="/Login">Log-In</a>
       <a class="nav-link" href="/ShoppingCart"><img src="/assets/images/shopping_cart_32px.png" width="32" height="32" alt="" class="img-fluid">Cart</a>
 	  <a class="nav-link" asp-page="/UserAdministration">UserAdministration</a>
 

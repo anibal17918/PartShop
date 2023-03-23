@@ -15,9 +15,12 @@ public class IndexModel : PageModel
 
     public IList<Domain.Entities.Producto> Producto { get; set; } = default!;
 
-    public void OnGet()
+    public async Task OnGetAsync()
     {
-        Producto = new List<Domain.Entities.Producto>();
+        if (_context.Producto != null)
+        {
+            Producto = await _context.Producto.ToListAsync();
+        }
     }
 
     public async Task OnPostAsync()

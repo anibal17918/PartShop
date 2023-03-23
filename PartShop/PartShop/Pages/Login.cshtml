@@ -1,5 +1,5 @@
 ﻿@page
-@model PartShop.Pages.LoginModel
+@model PartShop.Pages.Login.IndexModel;
 @{
 }
 <!doctype html>
@@ -59,20 +59,20 @@
                 <div class="col-lg-7 px-5 pt-5">
                     <h1 class="font-weight-bold py-3"></h1>
                     <h4>Ingresa a tu cuenta</h4>
-                    <form>
+                    <form method="post">
                         <div class="form-row">
                             <div class="col-lg-7">
-                                <input type="email" placeholder="Ingresar Correo" class="form-control my-3 p-4">
+                                <input type="email" placeholder="Ingresar Correo" class="form-control my-3 p-4" name="correo">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-lg-7">
-                                <input type="password" placeholder="*******" class="form-control my-3 p-4">
+                                <input type="password" placeholder="*******" class="form-control my-3 p-4" name="clave">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-lg-7">
-                                <button type="button" class="btn1 mt-3 mb-5">Ingresar</button>
+                                <button type="submit" class="btn1 mt-3 mb-5">Ingresar</button>
                             </div>
                         </div>
                         <a href="#">Recuperar Contraseña</a>

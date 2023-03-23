@@ -45,7 +45,7 @@
 
         .btn1:hover {
             background: white;
-            border: 1 px solid;
+            border: 1px solid;
             color: black;
         }
     </style>
@@ -58,7 +58,7 @@
                 <div class="col-lg-7 px-5 pt-5">
                     <h1 class="font-weight-bold py-3">PartShop Online</h1>
                     <h4>Crear nueva cuenta</h4>
-                    <form method="post">
+                    <form method="post" action="../Pages/UserAdministration.cshtml.cs">
                         <div class="form-row">
                             <div class="form-row">
                                 <div class="col-lg-7">
@@ -100,10 +100,10 @@
                                     <input type="text" placeholder="ID de Rol" class="form-control my-3 p-4" name="idRol">
                                 </div>
                             </div>
-
+                        </div>
                        <div class="form-row">
                             <div class="col-lg-7">
-                                <button type="button" class="btn1 mt-3 mb-5" onclick="createUser()">Crear</button>
+                                <button type="button" class="btn1 mt-3 mb-5">Crear</button>
                             </div>
                        </div>
                             <a href="#">Recuperar Contraseña</a>

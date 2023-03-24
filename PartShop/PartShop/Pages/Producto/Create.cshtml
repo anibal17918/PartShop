@@ -51,7 +51,7 @@
 <div class="container">
     <div class="row no-gutters">
         <div class="col-lg-7 px-5 pt-5">
-            <div class="card-header" style="width:300%;">
+            <div class="card-header" style="width:200%;">
 <h1 class="lead" style="font-size:30px;">Agregar Nuevo Producto</h1>
 </div>
 <br/>
@@ -96,7 +96,7 @@
 
             <div class="form-group">
                                         <div class="col-lg-7">
-                        <label asp-for="Producto.IdCategoria" class="form-label"></label>
+                        <label asp-for="Producto.IdCategoria" class="form-label">Categoria</label>
                             <select asp-for="Producto.IdCategoria" class="form-control" style="width:350%;"  asp-items="ViewBag.IdCategoria"></select>
                                         </div>
                                     </div>
@@ -106,10 +106,12 @@
                 <input type="submit" value="Crear" class="btn btn-outline-success" />
             </div>
         </form>
+               
     </div>
-            <div style="align-self:end">
+            <div style="left:300%;">
                 <a asp-page="Index">Back to List</a>
             </div>
+           
 </div>
 
 <br/>

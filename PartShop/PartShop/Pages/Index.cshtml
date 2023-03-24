@@ -55,7 +55,7 @@
                                 <img src="../assets/product4.jpg" alt="Product 1" class="img-fluid">
                                 <p><strong>@producto.Nombre</strong></p>
                                 <p>@producto.Descripcion</p>
-                                <p><strong>RD$ @producto.ValorCodigo</strong></p>
+                                <p><strong>RD@($"{producto.ValorCodigo:c}")</strong></p>
                                 @if (!string.IsNullOrWhiteSpace(Html.ViewContext.HttpContext.Session.GetString("UserId")))
                                 {
                                     <p><a class="btn btn-outline-info" asp-page="" asp-route-idProducto="@producto.IdProducto">Add to cart</a></p>

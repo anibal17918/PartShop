@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace PartShop.Domain.Entities
 {
@@ -8,6 +9,7 @@ namespace PartShop.Domain.Entities
         public string? Codigo { get; set; }
 
         [DisplayName("Precio")]
+        [DisplayFormat(DataFormatString = "{0:#,##0.00}")]
         public int? ValorCodigo { get; set; }
         public string? Nombre { get; set; }
 

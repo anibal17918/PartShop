@@ -32,7 +32,7 @@ namespace PartShop.Pages.Login
             var password = Request.Form["clave"].ToString();
 
             // Code to validate the email and password and authenticate the user
-            var user = _context.Usuario.SingleOrDefaultAsync(u => u.Correo == email && u.Clave == password).Result;
+            var user = _context.Usuario.SingleOrDefaultAsync(u => u.Correo == email && u.Clave == password && u.Activo).Result;
             if (user == null)
             {
                 ModelState.AddModelError(string.Empty, "Invalid login attempt.");

@@ -19,7 +19,7 @@
 	
 		<div class="ShoppingCart">
         <div class="card-header">
-            <p class="lead" style="align-self:center;">My order - Total: RD$ @Model.Venta.TotalCosto</p>
+            <p class="lead" style="align-self:center;">My order - Total: RD@($"{Model.Venta.TotalCosto:c}")</p>
         </div>
 			<div class="col-md-18">
                 <div class="row mt-5">
@@ -32,8 +32,9 @@
                                     <br/>
                                     <div class="card">
                                         <div class="card-header">
-                                            <p class="text-center font-weight-bold">@detalleVenta.IdProductoNavigation.Descripcion</p>
+                                            <p class="text-center font-weight-bold">@detalleVenta.IdProductoNavigation.Nombre</p>
                                             <p><strong>Quantity:</strong> @detalleVenta.Cantidad</p>
+                                            <p><strong>Price:</strong> @detalleVenta.PrecioUnidad</p>
                                         </div>
 
                                         <div class="card-body text-center">
@@ -56,7 +57,7 @@
                 </div>
             <div class="row mt-5">
                 <div class="col-12">
-                    <h3>Total: RD$ @Model.Venta.TotalCosto</h3>
+                    <h3>Total: RD@($"{Model.Venta.TotalCosto:c}")</h3>
                 </div>
             </div>
 

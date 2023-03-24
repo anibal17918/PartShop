@@ -1,4 +1,6 @@
-﻿namespace PartShop.Domain.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace PartShop.Domain.Entities
 {
     public class Venta : BaseEntity
     {
@@ -11,6 +13,8 @@
         public string? TipoDocumento { get; set; }
         public int? CantidadProducto { get; set; }
         public int? CantidadTotal { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:#,##0.00}")]
         public double? TotalCosto { get; set; }
         public double? ImporteRecibido { get; set; }
         public double? ImporteCambio { get; set; }

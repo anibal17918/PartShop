@@ -12,6 +12,8 @@ builder.Services.AddDbContext<PartShopDbContext>(
 
 builder.Services.AddPartShopServices();
 
+builder.Services.AddSession();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,6 +26,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseSession();
 
 app.UseRouting();
 

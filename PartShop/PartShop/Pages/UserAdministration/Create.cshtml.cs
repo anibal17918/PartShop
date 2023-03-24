@@ -15,7 +15,9 @@ public class CreateUserModel : PageModel
 
     public IActionResult OnGet()
     {
-    ViewData["IdCategoria"] = new SelectList(_context.Categoria, "IdCategoria", "IdCategoria");
+        ViewData["Tiendas"] = new SelectList(_context.Tienda, "IdTienda", "Nombre");
+        ViewData["Roles"] = new SelectList(_context.Rol, "IdRol", "Descripcion");
+
         return Page();
     }
 

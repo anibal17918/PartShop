@@ -30,7 +30,10 @@ public class EditUserModel : PageModel
             return NotFound();
         }
         Usuario = usuario;
-       ViewData["IdRol"] = new SelectList(_context.Rol, "IdRol", "Descripcion");
+        
+        ViewData["Tiendas"] = new SelectList(_context.Tienda, "IdTienda", "Nombre");
+        ViewData["Roles"] = new SelectList(_context.Rol, "IdRol", "Descripcion");
+
         return Page();
     }
 

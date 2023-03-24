@@ -39,22 +39,8 @@ namespace PartShop.Pages.Login
                 return Page();
             }
 
-            // Store the user id in a cookie
-            Response.Cookies.Append("UserId", user.IdUsuario.ToString(), new CookieOptions()
-            {
-                Expires = DateTimeOffset.UtcNow.AddDays(7),
-                HttpOnly = true,
-                Secure = true,
-                SameSite = SameSiteMode.Strict
-            });
-
-            return RedirectToPage("/Index");
-        }
-
-        public IActionResult OnGetLogout()
-        {
-            // Remove the user id cookie
-            Response.Cookies.Delete("UserId");
+            HttpContext.Session.SetString("UserId", user.IdUsuario.ToString());
+            HttpContext.Session.SetString("RolId", user.IdRol.ToString() ?? string.Empty);
 
             return RedirectToPage("/Index");
         }

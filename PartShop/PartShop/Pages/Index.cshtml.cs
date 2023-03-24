@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using PartShop.Domain.Entities;
 
@@ -14,13 +15,60 @@ public class IndexModel : PageModel
     }
 
     public IList<Domain.Entities.Producto> Producto { get; set; } = default!;
-
-    public async Task OnGetAsync()
+    
+    public async Task<IActionResult> OnGetAsync(int? idProducto)
     {
         if (_context.Producto != null)
         {
             Producto = await _context.Producto.ToListAsync();
+
+            if (idProducto is not null)
+            {
+                var producto = await _context.Producto.FindAsync(idProducto);
+
+                var _ = int.TryParse(HttpContext.Session.GetString("UserId"), out var idUsuario);
+
+                var venta = await _context.Venta.FirstOrDefaultAsync(v => v.IdUsuario == idUsuario && v.Activo);
+
+                if (venta is null)
+                {
+                    venta = new Venta
+                    {
+                        IdUsuario = idUsuario,
+                        TotalCosto = producto.ValorCodigo
+                    };
+
+                    var newVenta = await _context.Venta.AddAsync(venta);
+
+                    await _context.SaveChangesAsync();
+
+                    venta.IdVenta = newVenta.Entity.IdVenta;
+                }
+                else
+                {
+                    venta.TotalCosto += producto.ValorCodigo;
+
+                    _context.Venta.Update(venta);
+
+                    await _context.SaveChangesAsync();
+                }
+
+                var detalleVenta = new DetalleVenta
+                {
+                    IdVenta = venta.IdVenta,
+                    IdProducto = idProducto,
+                    Cantidad = 1,
+                    PrecioUnidad = producto.ValorCodigo,
+                    ImporteTotal = producto.ValorCodigo
+                };
+
+                await _context.DetalleVenta.AddAsync(detalleVenta);
+
+                await _context.SaveChangesAsync();
+            }
         }
+
+        return Page();
     }
 
     public async Task OnPostAsync()
@@ -37,4 +85,10 @@ public class IndexModel : PageModel
         }
     }
 
+    public IActionResult OnGetLogout()
+    {
+        HttpContext.Session.Clear();
+
+        return RedirectToPage("/Index");
+    }
 }

@@ -42,9 +42,7 @@ namespace PartShop.Pages.Registro_usuarios
                 Apellidos = Usuario.Apellidos,
                 Correo = Usuario.Correo,
                 Usuario1 = Usuario.Usuario1,
-                Clave = Usuario.Clave,
-                IdTienda = Usuario.IdTienda,
-                IdRol = Usuario.IdRol
+                Clave = Usuario.Clave
             };
 
             _context.Usuario.Add(usuario);

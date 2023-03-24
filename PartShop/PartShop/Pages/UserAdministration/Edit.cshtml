@@ -1,0 +1,133 @@
+@page
+@model PartShop.Pages.UserAdministration.EditUserModel;
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Usuario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Usuario.IdUsuario" />
+            <div class="form-group">
+                <label asp-for="Usuario.Nombres" class="control-label"></label>
+                <input asp-for="Usuario.Nombres" class="form-control" />
+                <span asp-validation-for="Usuario.Nombres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.Apellidos" class="control-label"></label>
+                <input asp-for="Usuario.Apellidos" class="form-control" />
+                <span asp-validation-for="Usuario.Apellidos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.Correo" class="control-label"></label>
+                <input asp-for="Usuario.Correo" class="form-control" />
+                <span asp-validation-for="Usuario.Correo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.Usuario1" class="control-label"></label>
+                <input asp-for="Usuario.Usuario1" class="form-control" />
+                <span asp-validation-for="Usuario.Usuario1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.Clave" class="control-label"></label>
+                <input asp-for="Usuario.Clave" class="form-control" />
+                <span asp-validation-for="Usuario.Clave" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.IdTienda" class="control-label"></label>
+                <select asp-for="Usuario.IdTienda" class="form-control" asp-items="ViewBag.IdTienda"></select>
+                <span asp-validation-for="Usuario.IdTienda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.IdRol" class="control-label"></label>
+                <select asp-for="Usuario.IdRol" class="form-control" asp-items="ViewBag.IdRol"></select>
+                <span asp-validation-for="Usuario.IdRol" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Usuario.Activo" /> @Html.DisplayNameFor(model => model.Usuario.Activo)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.FechaRegistro" class="control-label"></label>
+                <input asp-for="Usuario.FechaRegistro" class="form-control" />
+                <span asp-validation-for="Usuario.FechaRegistro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <div class="row">
+<div class="col-md-4">
+<form method="post">
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<input type="hidden" asp-for="Usuario.IdUsuario" />
+<div class="form-group">
+<label asp-for="Usuario.Nombres" class="control-label"></label>
+<input asp-for="Usuario.Nombres" class="form-control" />
+<span asp-validation-for="Usuario.Nombres" class="text-danger"></span>
+</div>
+<div class="form-group">
+<label asp-for="Usuario.Apellidos" class="control-label"></label>
+<input asp-for="Usuario.Apellidos" class="form-control" />
+<span asp-validation-for="Usuario.Apellidos" class="text-danger"></span>
+</div>
+<div class="form-group">
+<label asp-for="Usuario.Correo" class="control-label"></label>
+<input asp-for="Usuario.Correo" class="form-control" />
+<span asp-validation-for="Usuario.Correo" class="text-danger"></span>
+</div>
+<div class="form-group">
+<label asp-for="Usuario.Usuario1" class="control-label"></label>
+<input asp-for="Usuario.Usuario1" class="form-control" />
+<span asp-validation-for="Usuario.Usuario1" class="text-danger"></span>
+</div>
+<div class="form-group">
+<label asp-for="Usuario.Clave" class="control-label"></label>
+<input asp-for="Usuario.Clave" class="form-control" />
+<span asp-validation-for="Usuario.Clave" class="text-danger"></span>
+</div>
+<div class="form-group">
+<label asp-for="Usuario.IdTienda" class="control-label"></label>
+<select asp-for="Usuario.IdTienda" class="form-control" asp-items="ViewBag.Tiendas"></select>
+<span asp-validation-for="Usuario.IdTienda" class="text-danger"></span>
+</div>
+<div class="form-group">
+<label asp-for="Usuario.IdRol" class="control-label"></label>
+<select asp-for="Usuario.IdRol" class="form-control" asp-items="ViewBag.Roles"></select>
+<span asp-validation-for="Usuario.IdRol" class="text-danger"></span>
+</div>
+<div class="form-group form-check">
+<label class="form-check-label">
+<input class="form-check-input" asp-for="Usuario.Activo" /> @Html.DisplayNameFor(model => model.Usuario.Activo)
+</label>
+</div>
+<div class="form-group">
+<label asp-for="Usuario.FechaRegistro" class="control-label"></label>
+<input asp-for="Usuario.FechaRegistro" class="form-control" />
+<span asp-validation-for="Usuario.FechaRegistro" class="text-danger"></span>
+</div>
+<div class="form-group">
+<input type="submit" value="Save" class="btn btn-primary" />
+</div>
+</form>
+</div>
+</div>
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+</div>
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -29,8 +29,11 @@ namespace PartShop.Pages.Producto
             {
                 return NotFound();
             }
+
             Producto = producto;
-           ViewData["IdCategoria"] = new SelectList(_context.Categoria, "IdCategoria", "IdCategoria");
+
+            ViewData["IdCategoria"] = new SelectList(_context.Categoria.ToList(), "IdCategoria", "Descripcion");
+
             return Page();
         }
 

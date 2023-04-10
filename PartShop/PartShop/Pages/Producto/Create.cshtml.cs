@@ -15,7 +15,7 @@ namespace PartShop.Pages.Producto
 
         public IActionResult OnGet()
         {
-        ViewData["IdCategoria"] = new SelectList(_context.Categoria, "IdCategoria", "Descripcion");
+        ViewData["IdCategoria"] = new SelectList(_context.Categoria.ToList(), "IdCategoria", "Descripcion");
             return Page();
         }
 

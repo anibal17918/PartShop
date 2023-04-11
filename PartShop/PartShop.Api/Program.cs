@@ -59,7 +59,7 @@ app.MapPost("/api/productos/comprar/{idProducto}", async (int idProducto) =>
 
             var success = await productoRepository.BuyProducto(idProducto);
 
-            return success ? Results.Ok() : Results.NotFound("No se encontró el producto");
+            return success ? Results.Ok("Producto comprado exitosamente") : Results.NotFound("No se encontró el producto");
         }
         catch (Exception e)
         {
@@ -69,7 +69,8 @@ app.MapPost("/api/productos/comprar/{idProducto}", async (int idProducto) =>
         }
     }).AllowAnonymous()
     .WithName("ComprarProducto")
-    .Produces(StatusCodes.Status200OK, typeof(List<ProductoModel>))
+    .Produces(StatusCodes.Status200OK, typeof(string))
+    .Produces(StatusCodes.Status404NotFound, typeof(string))
     .Produces(StatusCodes.Status400BadRequest, typeof(ErrorResponse));
 
 app.Run();

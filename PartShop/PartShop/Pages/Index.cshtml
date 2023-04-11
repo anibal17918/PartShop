@@ -31,7 +31,7 @@
     <form method="post" class="search-form">
         <div class="input-group">
             <input type="text" name="searchString" class="form-control" placeholder="Search for products" aria-label="Search" aria-describedby="button-addon2">
-            <button type="submit" value="Search" />
+            <button type="submit" value="Search">Search</button>
         </div>
         <div asp-validation-summary="All" class="text-danger"></div>
     </form>
@@ -55,7 +55,12 @@
                                 <img src="../assets/product4.jpg" alt="Product 1" class="img-fluid">
                                 <p><strong>@producto.Nombre</strong></p>
                                 <p>@producto.Descripcion</p>
-                                <p><strong>RD$ @producto.ValorCodigo</strong></p>
+                                <p><strong>RD@($"{producto.ValorCodigo:c}")</strong></p>
+                                @if (!string.IsNullOrWhiteSpace(Html.ViewContext.HttpContext.Session.GetString("UserId")))
+                                {
+                                    <p><a class="btn btn-outline-info" asp-page="" asp-route-idProducto="@producto.IdProducto">Add to cart</a></p>
+                                }
+
                             </div>
                         </div>
                     }

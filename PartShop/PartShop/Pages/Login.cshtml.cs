@@ -32,29 +32,15 @@ namespace PartShop.Pages.Login
             var password = Request.Form["clave"].ToString();
 
             // Code to validate the email and password and authenticate the user
-            var user = _context.Usuario.SingleOrDefaultAsync(u => u.Correo == email && u.Clave == password).Result;
+            var user = _context.Usuario.SingleOrDefaultAsync(u => u.Correo == email && u.Clave == password && u.Activo).Result;
             if (user == null)
             {
                 ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                 return Page();
             }
 
-            // Store the user id in a cookie
-            Response.Cookies.Append("UserId", user.IdUsuario.ToString(), new CookieOptions()
-            {
-                Expires = DateTimeOffset.UtcNow.AddDays(7),
-                HttpOnly = true,
-                Secure = true,
-                SameSite = SameSiteMode.Strict
-            });
-
-            return RedirectToPage("/Index");
-        }
-
-        public IActionResult OnGetLogout()
-        {
-            // Remove the user id cookie
-            Response.Cookies.Delete("UserId");
+            HttpContext.Session.SetString("UserId", user.IdUsuario.ToString());
+            HttpContext.Session.SetString("RolId", user.IdRol.ToString() ?? string.Empty);
 
             return RedirectToPage("/Index");
         }

@@ -1,4 +1,6 @@
-﻿namespace PartShop.Domain.Entities
+﻿using System.ComponentModel;
+
+namespace PartShop.Domain.Entities
 {
     public class Usuario : BaseEntity
     {
@@ -6,6 +8,8 @@
         public string? Nombres { get; set; }
         public string? Apellidos { get; set; }
         public string? Correo { get; set; }
+
+        [DisplayName("Nombre de usuario")]
         public string? Usuario1 { get; set; }
         public string? Clave { get; set; }
         public int? IdTienda { get; set; }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PartShop.Infrastructure;
 
@@ -11,9 +12,10 @@ using PartShop.Infrastructure;
 namespace PartShop.Infrastructure.Migrations
 {
     [DbContext(typeof(PartShopDbContext))]
-    partial class PartShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230411032013_Add_Ano_To_Producto")]
+    partial class Add_Ano_To_Producto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

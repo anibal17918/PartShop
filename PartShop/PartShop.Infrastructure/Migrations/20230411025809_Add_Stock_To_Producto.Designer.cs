@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PartShop.Infrastructure;
 
@@ -11,9 +12,10 @@ using PartShop.Infrastructure;
 namespace PartShop.Infrastructure.Migrations
 {
     [DbContext(typeof(PartShopDbContext))]
-    partial class PartShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230411025809_Add_Stock_To_Producto")]
+    partial class Add_Stock_To_Producto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -382,9 +384,6 @@ namespace PartShop.Infrastructure.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValueSql("((1))");
 
-                    b.Property<int>("Ano")
-                        .HasColumnType("int");
-
                     b.Property<string>("Codigo")
                         .HasMaxLength(100)
                         .IsUnicode(false)
@@ -409,6 +408,12 @@ namespace PartShop.Infrastructure.Migrations
                     b.Property<int?>("IdModelo")
                         .HasColumnType("int");
 
+                    b.Property<int?>("MarcaId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ModeloId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nombre")
                         .HasMaxLength(100)
                         .IsUnicode(false)
@@ -424,6 +429,10 @@ namespace PartShop.Infrastructure.Migrations
                         .HasName("PK__PRODUCTO__0988921092E65D85");
 
                     b.HasIndex("IdCategoria");
+
+                    b.HasIndex("MarcaId");
+
+                    b.HasIndex("ModeloId");
 
                     b.ToTable("Producto");
                 });
@@ -865,7 +874,19 @@ namespace PartShop.Infrastructure.Migrations
                         .HasForeignKey("IdCategoria")
                         .HasConstraintName("FK__PRODUCTO__IdCate__7D439ABD");
 
+                    b.HasOne("PartShop.Domain.Entities.Marca", "Marca")
+                        .WithMany()
+                        .HasForeignKey("MarcaId");
+
+                    b.HasOne("PartShop.Domain.Entities.Modelo", "Modelo")
+                        .WithMany()
+                        .HasForeignKey("ModeloId");
+
                     b.Navigation("IdCategoriaNavigation");
+
+                    b.Navigation("Marca");
+
+                    b.Navigation("Modelo");
                 });
 
             modelBuilder.Entity("PartShop.Domain.Entities.ProductoTienda", b =>

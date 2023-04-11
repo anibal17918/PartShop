@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PartShop.Infrastructure;
 
@@ -11,9 +12,10 @@ using PartShop.Infrastructure;
 namespace PartShop.Infrastructure.Migrations
 {
     [DbContext(typeof(PartShopDbContext))]
-    partial class PartShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230411030747_Remove_Unwanted_Ids")]
+    partial class Remove_Unwanted_Ids
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -381,9 +383,6 @@ namespace PartShop.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValueSql("((1))");
-
-                    b.Property<int>("Ano")
-                        .HasColumnType("int");
 
                     b.Property<string>("Codigo")
                         .HasMaxLength(100)
